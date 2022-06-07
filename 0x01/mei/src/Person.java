@@ -5,19 +5,19 @@ import java.util.Date;
 public class Person {
     private String name;
     private String surname;
-    private int birthdate;
-    private boolean anotherComanyOwner;
-    private boolean pensioner;
-    private boolean publicServer;
+    private int birthDate;
+    private boolean anotherCompanyOwner;
+    private boolean Pensioner;
+    private boolean PublicServer;
     private float salary;
 
-    public Person(String name, String surname, int birthdate, boolean anotherComanyOwner, boolean pensioner, boolean publicServer) {
+    public Person(String name, String surname, int birthDate, boolean anotherCompanyOwner, boolean pensioner, boolean publicServer) {
         this.name = name;
         this.surname = surname;
-        this.birthdate = birthdate;
-        this.anotherComanyOwner = anotherComanyOwner;
-        this.pensioner = pensioner;
-        this.publicServer = publicServer;
+        this.birthDate = birthDate;
+        this.anotherCompanyOwner = anotherCompanyOwner;
+        Pensioner = pensioner;
+        PublicServer = publicServer;
     }
 
     public String fullName() {
@@ -40,10 +40,10 @@ public class Person {
 
         return (
                 this.getSalary() < 130000 &&
-                        Period.between(LocalDate.of(this.birthdate, 01,01) , LocalDate.now()).getYears() >= 18 &&
-                        !this.anotherComanyOwner &&
-                        !this.pensioner &&
-                        !publicServer
+                        Period.between(LocalDate.of(this.birthDate, 01,01) , LocalDate.now()).getYears() >= 18 &&
+                        !this.anotherCompanyOwner &&
+                        !this.Pensioner &&
+                        !PublicServer
         );
     }
 }
