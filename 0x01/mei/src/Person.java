@@ -5,20 +5,16 @@ import java.util.Date;
 public class Person {
     private String name;
     private String surname;
-    private Date birthdate;
+    private int birthdate;
     private boolean anotherComanyOwner;
     private boolean pensioner;
     private boolean publicServer;
     private float salary;
 
     public Person(String name, String surname, int birthdate, boolean anotherComanyOwner, boolean pensioner, boolean publicServer) {
-        LocalDate currentDate = LocalDate.now();
-        int currentDay = currentDate.getDayOfMonth();
-        int currentMonth = currentDate.getMonth().getValue();
-
         this.name = name;
         this.surname = surname;
-        this.birthdate = new Date(currentDay, currentMonth, birthdate);
+        this.birthdate = birthdate;
         this.anotherComanyOwner = anotherComanyOwner;
         this.pensioner = pensioner;
         this.publicServer = publicServer;
@@ -41,11 +37,10 @@ public class Person {
     }
 
     public boolean isMEI() {
-        LocalDate bithDateLocalDate = LocalDate.from(Instant.ofEpochMilli(this.birthdate.getTime()).atZone(ZoneId.systemDefault()));
 
         return (
                 this.getSalary() < 130000 &&
-                        Period.between(bithDateLocalDate, LocalDate.now()).getYears() >= 18 &&
+                        Period.between(LocalDate.of(this.birthdate, 01,01) , LocalDate.now()).getYears() >= 18 &&
                         !this.anotherComanyOwner &&
                         !this.pensioner &&
                         !publicServer
