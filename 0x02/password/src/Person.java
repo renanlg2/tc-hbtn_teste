@@ -6,7 +6,7 @@ public class Person {
     public boolean checkUser(String user) {
         Pattern specificCharacters = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
         Matcher findSpecificCharacters = specificCharacters.matcher(user);
-        return user.length() >= 8 || !findSpecificCharacters.find();
+        return user.length() >= 8 && !findSpecificCharacters.find();
     }
 
     public boolean checkPassword(String password) {

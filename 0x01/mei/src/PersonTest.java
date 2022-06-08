@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,6 +26,7 @@ public class PersonTest {
     }
 
     @Test
+    @DisplayName("Check if Person IS MEI with salary equals R$ 1200,00")
     public void person_is_MEI(){
         assertFalse(p.isMEI());
     }

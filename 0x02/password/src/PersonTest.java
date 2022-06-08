@@ -22,7 +22,7 @@ public class PersonTest {
     @ParameterizedTest
     @ValueSource(strings = {"Paul#McCartney", "Neil@Arms"})
     void check_user_not_valid(String user){
-        assertTrue(p.checkUser(user));
+        assertFalse(p.checkUser(user));
     }
 
     @ParameterizedTest
